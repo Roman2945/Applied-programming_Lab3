@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-1%k3#4)@z$ea)lvk30trgraf9)2yvd@-)$%i_+4wt@0@8f73a%'
@@ -32,6 +31,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'BookingApp',
+    'templates_app',
 ]
 
 MIDDLEWARE = [

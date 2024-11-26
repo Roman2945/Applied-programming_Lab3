@@ -1,0 +1,16 @@
+<h1>Booking Details</h1>
+<p><strong>ID:</strong> {{ booking.id }}</p>
+<p><strong>Passenger:</strong> {{ booking.passenger }}</p>
+<p><strong>Status:</strong> {{ booking.status }}</p>
+<p><strong>Train Journey:</strong> {{ booking.train_journey }}</p>
+<p><strong>Seat:</strong> {{ booking.seat }}</p>
+<p><strong>Starting Station:</strong> {{ booking.starting_station }}</p>
+<p><strong>Ending Station:</strong> {{ booking.ending_station }}</p>
+<p><strong>Booking Date:</strong> {{ booking.booking_date }}</p>
+<p><strong>Amount Paid:</strong> {{ booking.amount_paid }}</p>
+
+<a href="{% url 'edit_booking' booking.id %}">Edit</a>
+<form action="{% url 'delete_booking' booking.id %}" method="POST" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
