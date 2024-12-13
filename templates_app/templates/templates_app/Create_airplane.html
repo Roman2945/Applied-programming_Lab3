@@ -1,0 +1,12 @@
+<h1>Create Airplane</h1>
+<form method="POST" action="{% url 'create_airplane' %}">
+    {% csrf_token %}
+    <label for="model">Model:</label>
+    <input type="text" id="model" name="model">
+    <label for="capacity">Capacity:</label>
+    <input type="number" id="capacity" name="capacity">
+    <label for="manufacturer">Manufacturer:</label>
+    <input type="text" id="manufacturer" name="manufacturer">
+    <button type="submit">Create</button>
+</form>
+<a href="{% url 'airplane_list' %}">Back to List</a>

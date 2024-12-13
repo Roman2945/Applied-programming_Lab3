@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking Detail</title>
+</head>
+<body>
+    <h1>Booking {{ booking.id }}</h1>
+    <p>Passenger: {{ booking.passenger }}</p>
+    <p>Status: {{ booking.status }}</p>
+    <p>Starting Station: {{ booking.starting_station }}</p>
+    <p>Ending Station: {{ booking.ending_station }}</p>
+    <p>Amount Paid: {{ booking.amount_paid }}</p>
+    <a href="{% url 'edit_booking' booking.id %}">Edit</a>
+    <form method="post" action="{% url 'delete_booking' booking.id %}">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'booking_list' %}">Back to List</a>
+</body>
+</html>
