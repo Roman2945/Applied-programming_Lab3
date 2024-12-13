@@ -1,17 +1,15 @@
-<h1>Edit Booking</h1>
-<form method="POST">
-    {% csrf_token %}
-    <label for="passenger">Passenger:</label>
-    <input type="text" id="passenger" name="passenger" value="{{ booking.passenger }}" required>
-
-    <label for="status">Status:</label>
-    <input type="text" id="status" name="status" value="{{ booking.status }}" required>
-
-    <label for="train_journey">Train Journey:</label>
-    <input type="text" id="train_journey" name="train_journey" value="{{ booking.train_journey }}" required>
-
-    <label for="seat">Seat:</label>
-    <input type="text" id="seat" name="seat" value="{{ booking.seat }}" required>
-
-    <button type="submit">Save Changes</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Booking</title>
+</head>
+<body>
+    <h1>Edit Booking {{ booking.id }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'booking_detail' booking.id %}">Back to Details</a>
+</body>
+</html>

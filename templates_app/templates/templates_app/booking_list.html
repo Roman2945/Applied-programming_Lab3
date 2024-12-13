@@ -1,8 +1,17 @@
-<h1>Bookings List</h1>
-<ul>
-    {% for booking in bookings %}
-        <li>
-            <a href="{% url 'booking_detail' booking.id %}">Booking #{{ booking.id }}</a>
-        </li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Booking List</title>
+</head>
+<body>
+    <h1>Bookings</h1>
+    <ul>
+        {% for booking in bookings %}
+            <li>
+                <a href="{% url 'booking_detail' booking.id %}">{{ booking }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_booking' %}">Create New Booking</a>
+</body>
+</html>

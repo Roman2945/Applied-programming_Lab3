@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Airplanes</title>
+</head>
+<body>
+    <h1>Airplanes</h1>
+    {% if airplanes %}
+        <ul>
+            {% for airplane in airplanes %}
+                <li>
+                    {{ airplane.model }} (Capacity: {{ airplane.capacity }}, Manufacturer: {{ airplane.manufacturer }})
+                    <form method="POST" action="{% url 'delete_airplane' airplane.airplaneid %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No airplanes available.</p>
+    {% endif %}
+    <a href="{% url 'create_airplane' %}">Create New Airplane</a>
+</body>
+</html>
